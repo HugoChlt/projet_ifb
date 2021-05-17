@@ -193,9 +193,90 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             tableau[co_y][co_x - 1] = 'X';
                             tableau[co_y][co_x - 2] = 'X';
                         }
-                }else if (tableau[co_y][co_x] == '5'){
-
-                }else if(tableau[co_y][co_x] == '_'){
+                } else if (tableau[co_y][co_x] == '5'){
+                        tableau[co_y][co_x] = 'X';
+                        if (tableau[co_y - 1][co_x] == '5') {
+                            tableau[co_y - 1][co_x] = 'X';
+                            if (tableau[co_y - 2][co_x] == '5') {
+                                tableau[co_y - 2][co_x] = 'X';
+                                if (tableau[co_y - 3][co_x] == '5') {
+                                    tableau[co_y - 3][co_x] = 'X';
+                                    if (tableau[co_y - 4][co_x] == '5') {
+                                        tableau[co_y - 4][co_x] = 'X';
+                                    } else {
+                                        tableau[co_y + 1][co_x] = 'X';
+                                    }
+                                } else {
+                                    tableau[co_y + 1][co_x] = 'X';
+                                    tableau[co_y + 2][co_x] = 'X';
+                                }
+                            } else {
+                                tableau[co_y + 1][co_x] = 'X';
+                                tableau[co_y + 2][co_x] = 'X';
+                                tableau[co_y + 3][co_x] = 'X';
+                            }
+                        } else if (tableau[co_y + 1][co_x] == '5') {
+                            tableau[co_y + 1][co_x] = 'X';
+                            if (tableau[co_y + 2][co_x] == '5') {
+                                tableau[co_y + 2][co_x] = 'X';
+                                if (tableau[co_y + 3][co_x] == '5') {
+                                    tableau[co_y + 3][co_x] = 'X';
+                                    if (tableau[co_y + 4][co_x] == '5') {
+                                        tableau[co_y + 4][co_x] = 'X';
+                                    } else {
+                                        tableau[co_y - 1][co_x] = 'X';
+                                    }
+                                } else {
+                                    tableau[co_y - 1][co_x] = 'X';
+                                    tableau[co_y - 2][co_x] = 'X';
+                                }
+                            } else {
+                                tableau[co_y - 1][co_x] = 'X';
+                                tableau[co_y - 2][co_x] = 'X';
+                                tableau[co_y - 3][co_x] = 'X';
+                            }
+                        } else if (tableau[co_y][co_x - 1] == '5') {
+                            tableau[co_y][co_x - 1] = 'X';
+                            if (tableau[co_y][co_x - 2] == '5') {
+                                tableau[co_y][co_x - 2] = 'X';
+                                if (tableau[co_y][co_x - 3] == '5') {
+                                    tableau[co_y][co_x - 3] = 'X';
+                                    if (tableau[co_y][co_x - 4] == '5') {
+                                        tableau[co_y][co_x - 4] = 'X';
+                                    } else {
+                                        tableau[co_y][co_x + 1] = 'X';
+                                    }
+                                } else {
+                                    tableau[co_y][co_x + 1] = 'X';
+                                    tableau[co_y][co_x + 2] = 'X';
+                                }
+                            } else {
+                                tableau[co_y][co_x + 1] = 'X';
+                                tableau[co_y][co_x + 2] = 'X';
+                                tableau[co_y][co_x + 3] = 'X';
+                            }
+                        } else if (tableau[co_y][co_x + 1] == '3') {
+                            tableau[co_y][co_x + 1] = 'X';
+                            if (tableau[co_y][co_x + 2] == '5') {
+                                tableau[co_y][co_x + 2] = 'X';
+                                if (tableau[co_y][co_x + 3] == '5') {
+                                    tableau[co_y][co_x + 3] = 'X';
+                                    if (tableau[co_y][co_x + 4] == '5') {
+                                        tableau[co_y][co_x + 4] = 'X';
+                                    } else {
+                                        tableau[co_y][co_x - 1] = 'X';
+                                    }
+                                } else {
+                                    tableau[co_y][co_x - 1] = 'X';
+                                    tableau[co_y][co_x - 2] = 'X';
+                                }
+                            } else {
+                                tableau[co_y][co_x - 1] = 'X';
+                                tableau[co_y][co_x - 2] = 'X';
+                                tableau[co_y][co_x - 3] = 'X';
+                            }
+                        }
+                } else if (tableau[co_y][co_x] == '_'){
                     tableau[co_y][co_x] = 'O';
                 }
                 grille(tableau);
