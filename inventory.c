@@ -38,7 +38,8 @@ Inventory nb_munitions(char a){
 }
 
 void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
-    char a = '\0';
+    char a = '\0'; //type munition
+    char b = '\0'; // continuez ou sauvegarder
     char maniere = '\0';
     int co_x, co_y;
     int i, j;
@@ -184,7 +185,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                         tableau[co_y][co_x + 1] = 'X';
                         if (tableau[co_y][co_x + 2] == '4') {
                             tableau[co_y][co_x + 2] = 'X';
-                            if(tableau[co_y][co_x + 3] == '4'){
+                            if (tableau[co_y][co_x + 3] == '4') {
                                 tableau[co_y][co_x + 3] = 'X';
                             } else {
                                 tableau[co_y][co_x - 1] = 'X';
@@ -193,6 +194,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             tableau[co_y][co_x - 1] = 'X';
                             tableau[co_y][co_x - 2] = 'X';
                         }
+                    }
                 } else if (tableau[co_y][co_x] == '5'){
                         tableau[co_y][co_x] = 'X';
                         if (tableau[co_y - 1][co_x] == '5') {
@@ -357,5 +359,19 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 }
             }
         }
-    } while (recommencer == 1 && e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0);
+        fflush(stdin);
+        printf("Voulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
+        gets(&b);
+        while (b != 'C' || b != 'S'){
+            printf("Voulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
+            gets(&b);
+        }
+    } while (b == 'C' && recommencer == 1 && e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0);
+    if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
+        printf("Vous avez perdu !\n");
+    } else if (recommencer == 0){
+        printf("Vous avez gagné! \n");
+    } else if (b == 'S'){
+        // effectuer la sauvegarde
+    }
 }
