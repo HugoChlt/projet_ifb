@@ -180,7 +180,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             tableau[co_y][co_x + 1] = 'X';
                             tableau[co_y][co_x + 2] = 'X';
                         }
-                    } else if (tableau[co_y][co_x + 1] == '3') {
+                    } else if (tableau[co_y][co_x + 1] == '4') {
                         tableau[co_y][co_x + 1] = 'X';
                         if (tableau[co_y][co_x + 2] == '4') {
                             tableau[co_y][co_x + 2] = 'X';
@@ -255,7 +255,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                                 tableau[co_y][co_x + 2] = 'X';
                                 tableau[co_y][co_x + 3] = 'X';
                             }
-                        } else if (tableau[co_y][co_x + 1] == '3') {
+                        } else if (tableau[co_y][co_x + 1] == '5') {
                             tableau[co_y][co_x + 1] = 'X';
                             if (tableau[co_y][co_x + 2] == '5') {
                                 tableau[co_y][co_x + 2] = 'X';
