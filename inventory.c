@@ -4,6 +4,7 @@
 
 #include "inventory.h"
 #include "grid.h"
+#include "autres_fonctions.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -43,9 +44,10 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
     char maniere = '\0';
     int co_x, co_y;
     int i, j;
-    int recommencer;
+    int oui;
     grille_initiale(tab);
     do {
+        grille(tab);
         fflush(stdin);
         printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
                e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
@@ -71,7 +73,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 if (maniere == 'H') {
                     for (i = 0; i < 10; i++) {
                         if (tableau[co_y][i] != '_' && tableau[co_y][i] != 'O' && tableau[co_y][i] != 'X') {
-                            printf("Un bateau a ete touché, en %d%d", co_y, i);
+                            printf("Un bateau a ete touche, en %d%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
                         } else {
@@ -82,7 +84,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 } else {
                     for (i = 0; i < 10; i++) {
                         if (tableau[i][co_x] != '_' && tableau[i][co_x] != 'O' && tableau[i][co_x] != 'X') {
-                            printf("Un bateau a ete touché, en %d%d", i, co_x);
+                            printf("Un bateau a ete touche, en %d%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
                         } else {
@@ -99,6 +101,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 printf("Ou souhaitez vous larguez le missile tactique ?\n");
                 scanf("%d%d", &co_y, &co_x);
                 if(tableau[co_y][co_x] == '2'){
+                    printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                     if(tableau[co_y-1][co_x] == '2'){
@@ -114,6 +117,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                         tableau[co_y][co_x+1] = 'X';
                         tab[co_y][co_x+1] = 'X';
                     }
+                    printf("Un bateau de taille 2 a ete coule\n");
                 } else if (tableau[co_y][co_x] == '3') {
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
@@ -158,6 +162,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             tab[co_y][co_x - 1] = 'X';
                         }
                     }
+                    printf("Un bateau de taille 3 a ete coule\n");
                 }else if(tableau[co_y][co_x] == '4') {
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
@@ -238,6 +243,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             tab[co_y][co_x - 2] = 'X';
                         }
                     }
+                    printf("Un bateau de taille 4 a ete coule\n");
                 } else if (tableau[co_y][co_x] == '5'){
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
@@ -362,6 +368,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                                 tab[co_y][co_x - 3] = 'X';
                             }
                         }
+                    printf("Un bateau de taille 5 a ete coule\n");
                 } else if (tableau[co_y][co_x] == '_'){
                     tableau[co_y][co_x] = 'O';
                     tab[co_y][co_x] = 'O';
@@ -374,6 +381,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 printf("Ou souhaitez vous larguez la bombe ?\n");
                 scanf("%d%d", &co_y, &co_x);
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else {
@@ -381,6 +389,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y][co_x] = 'O';
                 }
                 if(tableau[co_y-1][co_x] != '_' && tableau[co_y-1][co_x] != 'O' && tableau[co_y-1][co_x] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y-1, co_x);
                     tableau[co_y-1][co_x] = 'X';
                     tab[co_y-1][co_x] = 'X';
                 } else {
@@ -388,6 +397,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y-1][co_x] = 'O';
                 }
                 if(tableau[co_y-1][co_x+1] != '_' && tableau[co_y-1][co_x+1] != 'O' && tableau[co_y-1][co_x+1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y-1, co_x+1);
                     tableau[co_y-1][co_x+1] = 'X';
                     tab[co_y-1][co_x+1] = 'X';
                 } else {
@@ -395,6 +405,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y-1][co_x+1] = 'O';
                 }
                 if(tableau[co_y][co_x+1] != '_' && tableau[co_y][co_x+1] != 'O' && tableau[co_y][co_x+1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y, co_x+1);
                     tableau[co_y][co_x+1] = 'X';
                     tab[co_y][co_x+1] = 'X';
                 } else {
@@ -402,6 +413,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y][co_x+1] = 'O';
                 }
                 if(tableau[co_y+1][co_x+1] != '_' && tableau[co_y+1][co_x+1] != 'O' && tableau[co_y+1][co_x+1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y+1, co_x+1);
                     tableau[co_y+1][co_x+1] = 'X';
                     tab[co_y+1][co_x+1] = 'X';
                 } else {
@@ -409,6 +421,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y+1][co_x+1] = 'O';
                 }
                 if(tableau[co_y+1][co_x] != '_' && tableau[co_y+1][co_x] != 'O' && tableau[co_y+1][co_x] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y+1, co_x);
                     tableau[co_y+1][co_x] = 'X';
                     tab[co_y+1][co_x] = 'X';
                 } else {
@@ -416,6 +429,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y+1][co_x] = 'O';
                 }
                 if(tableau[co_y+1][co_x-1] != '_' && tableau[co_y+1][co_x-1] != 'O' && tableau[co_y+1][co_x-1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y+1, co_x-1);
                     tableau[co_y+1][co_x-1] = 'X';
                     tab[co_y+1][co_x-1] = 'X';
                 } else {
@@ -423,6 +437,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y+1][co_x-1] = 'O';
                 }
                 if(tableau[co_y][co_x-1] != '_' && tableau[co_y][co_x-1] != 'O' && tableau[co_y][co_x-1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y, co_x-1);
                     tableau[co_y][co_x-1] = 'X';
                     tab[co_y][co_x-1] = 'X';
                 } else {
@@ -430,6 +445,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     tab[co_y][co_x-1] = 'O';
                 }
                 if(tableau[co_y-1][co_x-1] != '_' && tableau[co_y-1][co_x-1] != 'O' && tableau[co_y-1][co_x-1] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y-1, co_x-1);
                     tableau[co_y-1][co_x-1] = 'X';
                     tab[co_y-1][co_x-1] = 'X';
                 } else {
@@ -444,6 +460,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 printf("Ou souhaitez vous larguez le missile ?\n");
                 scanf("%d%d", &co_y, &co_x);
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
+                    printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else {
@@ -455,26 +472,20 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 break;
             default : return 0;
                 }
-        for(i=0;i<10;i++){
-            for(j=0;j<10;j++){
-                if(tableau[i][j] != '_' && tableau[i][j] != 'X' && tableau[i][j] != 'O'){
-                    recommencer = 1;
-                } else {
-                    recommencer = 0;
-                }
-            }
-        }
+
+        oui = recommencer(tableau);
+
         fflush(stdin);
-        printf("Voulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
+        printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
         gets(&b);
-        while (b != 'C' || b != 'S'){
-            printf("Voulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
+        while (b != 'C' && b != 'S'){
+            printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
         }
-    } while (b == 'C' && recommencer == 1 && e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0);
+    } while (b == 'C' && oui ==  1 && e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0);
     if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
         printf("Vous avez perdu !\n");
-    } else if (recommencer == 0){
+    } else if (oui == 0){
         printf("Vous avez gagné! \n");
     } else if (b == 'S'){
         FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "r");

@@ -91,3 +91,16 @@ void continuer(char a){
 
     }
 }
+
+int recommencer(char tableau[10][10]){
+    int i;
+    int j;
+    for(i=0;i<10;i++){
+        for(j=0;j<10;j++){
+            if(tableau[i][j] != '-' && tableau[i][j] != 'X' && tableau[i][j] != 'O'){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
