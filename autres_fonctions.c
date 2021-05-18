@@ -39,6 +39,7 @@ char partie (char a, char b) {
         case 'C' :
             printf("On verra apres\n");
         case 'D' :
+            fflush(stdin);
             printf("Choississez le niveau de difficulte :\n");
             printf("Facile (F)\n");
             printf("Moyen (M)\n");
@@ -47,7 +48,7 @@ char partie (char a, char b) {
             a = toupper(a);
             while (a != 'F' && a != 'M' && a != 'D') {
                 printf("Erreur, la commande souhaitee n'existe pas !\n");
-                printf("Veuillez choisir un niveau de difficulté possible : F, M ou D\n");
+                printf("Veuillez choisir un niveau de difficulte possible : F, M ou D\n");
                 gets(&a);
                 a = toupper(a);
             }
