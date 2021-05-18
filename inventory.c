@@ -54,7 +54,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
         fflush(stdin);
         printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
         gets(&a);
-        while (a != 'A' && a != 'T' && a != 'B' && a != 'M') {
+        while (a != 'A' || e.missile_artillerie == 0 && a != 'T' || e.missile_tactique == 0 && a != 'B' || e.missile == 0 && a != 'M' || e.bombe == 0) {
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
         }
@@ -63,6 +63,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 e.missile_artillerie -= 1;
                 printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                 scanf("%d%d", &co_y, &co_x);
+                while (co_y < 0 || co_y > 9 || co_x < 0 || co_x > 9){
+                    printf("Erreur, coordonnees invalides\n");
+                    printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
+                    scanf("%d%d", &co_y, &co_x);
+                }
                 fflush(stdin);
                 printf("De maniere horizontale (H) ou verticale (V) ?\n");
                 gets(&maniere);
@@ -98,8 +103,13 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 break;
             case 'T' :
                 e.missile_tactique -= 1;
-                printf("Ou souhaitez vous larguez le missile tactique ?\n");
+                printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                 scanf("%d%d", &co_y, &co_x);
+                while (co_y < 0 || co_y > 9 || co_x < 0 || co_x > 9){
+                    printf("Erreur, coordonnees invalides\n");
+                    printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
+                    scanf("%d%d", &co_y, &co_x);
+                }
                 if(tableau[co_y][co_x] == '2'){
                     printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
@@ -378,8 +388,13 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     break;
             case 'B' :
                 e.bombe -= 1;
-                printf("Ou souhaitez vous larguez la bombe ?\n");
+                printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                 scanf("%d%d", &co_y, &co_x);
+                while (co_y < 0 || co_y > 9 || co_x < 0 || co_x > 9){
+                    printf("Erreur, coordonnees invalides\n");
+                    printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
+                    scanf("%d%d", &co_y, &co_x);
+                }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
                     printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
@@ -457,8 +472,13 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 break;
             case 'M' :
                 e.missile -= 1;
-                printf("Ou souhaitez vous larguez le missile ?\n");
+                printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                 scanf("%d%d", &co_y, &co_x);
+                while (co_y < 0 || co_y > 9 || co_x < 0 || co_x > 9){
+                    printf("Erreur, coordonnees invalides\n");
+                    printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
+                    scanf("%d%d", &co_y, &co_x);
+                }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
                     printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
