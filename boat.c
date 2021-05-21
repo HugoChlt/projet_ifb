@@ -21,8 +21,7 @@ void bateaux (char tableau[10][10]) {
     do {
         co_y = rand() % 10;
         co_x = rand() % 10;
-    } while (co_x > 5 || co_y > 5 && tableau[co_y][co_x + 1] != '_' && tableau[co_y][co_x + 2] != '_' && tableau[co_y][co_x + 3] != '_' && tableau[co_y][co_x + 4] != '_' ||
-             tableau[co_y + 1][co_x] != '_' && tableau[co_y + 2][co_x] != '_' && tableau[co_y + 3][co_x] != '_' && tableau[co_y + 4][co_x] != '_');
+    } while (co_x > 5 || co_y > 5);
     tableau[co_y][co_x] = '5';
 
     a = rand() % 2;
@@ -42,8 +41,8 @@ void bateaux (char tableau[10][10]) {
     do {
         co_y = rand() % 10;
         co_x = rand() % 10;
-    } while (co_x > 6 || co_y > 6 && tableau[co_y][co_x + 1] != '_' && tableau[co_y][co_x + 2] != '_' && tableau[co_y][co_x + 3] != '_' ||
-             tableau[co_y + 1][co_x] != '_' && tableau[co_y + 2][co_x] != '_' && tableau[co_y + 3][co_x] != '_');
+    } while (co_x > 6 || tableau[co_y][co_x + 1] != '_' || tableau[co_y][co_x + 2] != '_' || tableau[co_y][co_x + 3] != '_' || co_y > 6  ||
+             tableau[co_y + 1][co_x] != '_' || tableau[co_y + 2][co_x] != '_' || tableau[co_y + 3][co_x] != '_');
     tableau[co_y][co_x] = '4';
 
     a = rand() % 2;
@@ -63,8 +62,8 @@ void bateaux (char tableau[10][10]) {
         do {
             co_y = rand() % 10;
             co_x = rand() % 10;
-        } while (co_x > 7 || co_y > 7 && tableau[co_y][co_x + 1] != '_' && tableau[co_y][co_x + 2] != '_' ||
-                 tableau[co_y + 1][co_x] != '_' && tableau[co_y + 2][co_x] != '_');
+        } while (co_x > 7 || tableau[co_y][co_x + 1] != '_' || tableau[co_y][co_x + 2] != '_' || co_y > 7  ||
+                 tableau[co_y + 1][co_x] != '_' || tableau[co_y + 2][co_x] != '_');
         tableau[co_y][co_x] = '3';
 
         a = rand() % 2;
@@ -81,7 +80,8 @@ void bateaux (char tableau[10][10]) {
     do {
         co_y = rand() % 10;
         co_x = rand() % 10;
-    } while (co_x > 8 || co_y > 8);
+    } while (co_x > 8 || tableau[co_y][co_x + 1] != '_' || co_y > 8  ||
+             tableau[co_y + 1][co_x] != '_');
     tableau[co_y][co_x] = '2';
 
     a = rand() % 2;
