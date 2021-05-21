@@ -65,7 +65,7 @@ char partie (char a, char b) {
                 printf("Erreur, la commande souhaitee n'existe pas !\n");
                 printf("Choississez la lettre du type de partie souhaitee :");
                 scanf(" %c", &b);
-                b=toupper(b);
+                b = toupper(b);
             }
             switch (b) {
                 case 'C' :

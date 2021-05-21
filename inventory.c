@@ -10,6 +10,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 /**
  * Permet de définir le nombre de munitions disponibles en fonction du niveau de difficulte sélectionne
@@ -51,11 +52,17 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
         fflush(stdin);
         printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
                e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
-        do {
+        fflush(stdin);
+        printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+        gets(&a);
+        a = toupper(a);
+        while (a != 'A' && a != 'T' && a != 'B' && a != 'M'){
             fflush(stdin);
+            printf("Veuillez entrer une munition correcte\n");
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
-        } while (a != 'A' && e.missile_artillerie == 0 || a != 'T' && e.missile_tactique == 0 || a != 'B' && e.missile == 0 || a != 'M' && e.bombe == 0);
+            a = toupper(a);
+        }
         switch (a) {
             case 'A' :
                 e.missile_artillerie -= 1;
