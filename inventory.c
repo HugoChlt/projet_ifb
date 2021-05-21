@@ -51,13 +51,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
         fflush(stdin);
         printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
                e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
-        fflush(stdin);
-        printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
-        gets(&a);
-        while (a != 'A' || e.missile_artillerie == 0 && a != 'T' || e.missile_tactique == 0 && a != 'B' || e.missile == 0 && a != 'M' || e.bombe == 0) {
+        do {
+            fflush(stdin);
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
-        }
+        } while (a != 'A' && e.missile_artillerie == 0 || a != 'T' && e.missile_tactique == 0 || a != 'B' && e.missile == 0 || a != 'M' && e.bombe == 0);
         switch (a) {
             case 'A' :
                 e.missile_artillerie -= 1;
@@ -81,9 +79,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             printf("Un bateau a ete touche, en %d%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
-                        } else {
+                        } else if (tableau[co_y][i] != '_'){
                             tableau[co_y][i] = 'O';
                             tab[co_y][i] = 'O';
+                        } else if (tableau[co_y][i] != 'X' && tableau[co_y][i] != 'O'){
+
                         }
                     }
                 } else {
@@ -92,9 +92,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             printf("Un bateau a ete touche, en %d%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
-                        } else {
-                            tableau[i][co_x] = 'O';
+                        } else if (tableau[i][co_x] != '_'){
+                            tableau[i][i] = 'O';
                             tab[i][co_x] = 'O';
+                        } else if (tableau[i][co_x] != 'X' && tableau[i][co_x] != 'O'){
+
                         }
                     }
                 }
@@ -379,9 +381,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             }
                         }
                     printf("Un bateau de taille 5 a ete coule\n");
-                } else if (tableau[co_y][co_x] == '_'){
+                } else if (tableau[co_y][co_x] != '_'){
                     tableau[co_y][co_x] = 'O';
                     tab[co_y][co_x] = 'O';
+                } else if (tableau[co_y][co_x] != 'X' && tableau[co_y][co_x] != 'O'){
+
                 }
                 grille(tableau);
                 grille(tab);
@@ -399,9 +403,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
-                } else {
+                } else if (tableau[co_y][co_x] != '_'){
                     tableau[co_y][co_x] = 'O';
                     tab[co_y][co_x] = 'O';
+                } else if (tableau[co_y][co_x] != 'X' && tableau[co_y][co_x] != 'O'){
+
                 }
                 if(tableau[co_y-1][co_x] != '_' && tableau[co_y-1][co_x] != 'O' && tableau[co_y-1][co_x] != 'X'){
                     printf("Un bateau a ete touche, en %d%d", co_y-1, co_x);
@@ -483,9 +489,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                     printf("Un bateau a ete touche, en %d%d", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
-                } else {
+                } else if (tableau[co_y][co_x] != '_'){
                     tableau[co_y][co_x] = 'O';
                     tab[co_y][co_x] = 'O';
+                } else if (tableau[co_y][co_x] != 'X' && tableau[co_y][co_x] != 'O'){
+
                 }
                 grille(tableau);
                 grille(tab);
