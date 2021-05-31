@@ -1532,7 +1532,22 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             default : return 0;
         }
 
+        srand(time(0));
+        deplacer = rand()% 2;
+        if(deplacer == 0){
+            do {
+                co_y = rand() % 10;
+                co_x = rand() % 10;
+            } while (tableau[co_y][co_x] == '_' || tableau[co_y][co_x] == 'X' || tableau[co_y][co_x] == 'O');
+            if(tableau[co_y][co_x] == '2'){
+                if(tableau[co_y][co_x+1] == '2'){
+                    tableau[co_y][co_x+1] = '_';
+                    if(tableau[co_y][co_x-1] == '_'){
 
+                    }
+                }
+            }
+        }
 
         oui = recommencer(tableau);
 
