@@ -46,7 +46,11 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
     int co_x, co_y;
     int i, j;
     int oui;
-    grille_initiale(tab);
+    for (i=0;i<10;i++){
+        for (j=0;j<10;j++){
+            tab[i][j]='_';
+        }
+    }
     do {
         grille(tab);
         fflush(stdin);
@@ -69,6 +73,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                 printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                 scanf("%d%d", &co_y, &co_x);
                 while (co_y < 0 || co_y > 9 || co_x < 0 || co_x > 9){
+                    fflush(stdin);
                     printf("Erreur, coordonnees invalides\n");
                     printf("Ou souhaitez vous larguez le missile d'artillerie ?\n");
                     scanf("%d%d", &co_y, &co_x);
@@ -86,7 +91,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             printf("Un bateau a ete touche, en %d%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
-                        } else if (tableau[co_y][i] != '_'){
+                        } else if (tableau[co_y][i] == '_'){
                             tableau[co_y][i] = 'O';
                             tab[co_y][i] = 'O';
                         } else if (tableau[co_y][i] != 'X' && tableau[co_y][i] != 'O'){
@@ -99,7 +104,7 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
                             printf("Un bateau a ete touche, en %d%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
-                        } else if (tableau[i][co_x] != '_'){
+                        } else if (tableau[i][co_x] == '_'){
                             tableau[i][i] = 'O';
                             tab[i][co_x] = 'O';
                         } else if (tableau[i][co_x] != 'X' && tableau[i][co_x] != 'O'){

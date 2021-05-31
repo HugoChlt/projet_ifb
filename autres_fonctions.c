@@ -35,9 +35,10 @@ char partie (char a, char b) {
     }
     switch (b) {
         case 'Q' :
-            return 0;
+            return b;
         case 'C' :
             printf("On verra apres\n");
+            return b;
         case 'D' :
             fflush(stdin);
             printf("Choississez le niveau de difficulte :\n");
@@ -76,6 +77,7 @@ char partie (char a, char b) {
                     printf("On verra après\n");
             }
             return a;
+        default : return 0;
     }
 }
 
