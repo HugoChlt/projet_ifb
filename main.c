@@ -82,9 +82,22 @@ int main() {
                     tirs(plateau, e, tab);
                     break;
                 case 'B' :
-                    printf("On verra après\n");
+                    grille_initiale(plateau);
+
+                    printf("\n\n");
+
+                    printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
+
+                    bateaux(plateau);
+
+                    grille(plateau);
+
+                    Inventory d = nb_munitions(a);
+
+                    tirs_2(plateau, d, tab);
+                    break;
                 case 'A' :
-                    printf("On verra après\n");
+                    printf("On verra apres\n");
             }
         default : return 0;
     }

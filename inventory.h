@@ -14,5 +14,6 @@ typedef struct {
 
 Inventory nb_munitions (char a);
 void tirs(char tableau[10][10], Inventory e, char tab[10][10]);
+void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]);
 
 #endif //PROJET_1_INVENTORY_H
