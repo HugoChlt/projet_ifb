@@ -32,7 +32,7 @@ int main() {
     }
     switch (b) {
         case 'Q' :
-            return b;
+            return 0;
         case 'C' :
             printf("On verra apres\n");
             return b;
@@ -97,7 +97,20 @@ int main() {
                     tirs_2(plateau, d, tab);
                     break;
                 case 'A' :
-                    printf("On verra apres\n");
+                    grille_initiale(plateau);
+
+                    printf("\n\n");
+
+                    printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
+
+                    bateaux(plateau);
+
+                    grille(plateau);
+
+                    Inventory f = nb_munitions(a);
+
+                    tirs_3(plateau, f, tab);
+                    break;
             }
         default : return 0;
     }
