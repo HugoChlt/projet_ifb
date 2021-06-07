@@ -81,19 +81,6 @@ char partie (char a, char b) {
     }
 }
 
-void continuer(char a){
-    do{
-        printf("Voulez-vous continuer votre partie (C) ou la sauvegarder et quitter la partie (S) ?\n");
-        gets(&a);
-        a = toupper(a);
-    } while (a != 'C' && a != 'S');
-    if(a == 'S'){
-        printf("On verra après\n");
-    } else {
-
-    }
-}
-
 int recommencer(char tableau[10][10]){
     int i;
     int j;
