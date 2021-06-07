@@ -1062,6 +1062,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     char b = '\0'; // continuez ou sauvegarder
     char maniere = '\0';
     int co_x, co_y; //coordonnées x et y
+    int d;
     int i, j; //entiers pour les boucles
     int oui; //permet de stocker un entier afin de savoir si oui ou non il reste des bateaux sur la grille
     int deplacer; // permet de savoir si l'ordinateur déplace ou non un bateau
@@ -1532,6 +1533,13 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             default : return 0;
         }
 
+        oui = recommencer(tableau);
+
+        if(oui == 0){
+            printf("Vous avez gagné! \n");
+            return 0;
+        }
+
         srand(time(0));
         deplacer = rand()% 2;
         if(deplacer == 0){
@@ -1540,21 +1548,201 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                 co_x = rand() % 10;
             } while (tableau[co_y][co_x] == '_' || tableau[co_y][co_x] == 'X' || tableau[co_y][co_x] == 'O');
             if(tableau[co_y][co_x] == '2'){
-                if(tableau[co_y][co_x+1] == '2'){
+                tableau[co_y][co_x] = '_';
+                if(tableau[co_y][co_x+1] == '2' || tableau[co_y][co_x+1] == 'X'){
                     tableau[co_y][co_x+1] = '_';
-                    if(tableau[co_y][co_x-1] == '_'){
+                } else if(tableau[co_y][co_x-1] == '2' || tableau[co_y][co_x-1] == 'X'){
+                    tableau[co_y][co_x-1] = '_';
+                } else if (tableau[co_y+1][co_x] == '2' || tableau[co_y+1][co_x] == 'X'){
+                    tableau[co_y+1][co_x] = '_';
+                } else if (tableau[co_y-1][co_x] == '2' || tableau[co_y-1][co_x] == 'X'){
+                    tableau[co_y-1][co_x] = '_';
+                }
+                do {
+                    co_y = rand() % 10;
+                    co_x = rand() % 10;
+                } while (co_x > 8 || tableau[co_y][co_x + 1] != '_' || co_y > 8  ||
+                         tableau[co_y + 1][co_x] != '_');
+                tableau[co_y][co_x] = '2';
 
+                d = rand() % 2;
+
+                if (d == 0) {
+                    tableau[co_y][co_x + 1] = '2';
+                } else if (d == 1) {
+                    tableau[co_y + 1][co_x] = '2';
+                }
+
+            } else if (tableau[co_y][co_x] == '3'){
+                tableau[co_y][co_x] = '_';
+                if(tableau[co_y][co_x+1] == '3' || tableau[co_y][co_x+1] == 'X'){
+                    tableau[co_y][co_x+1] = '_';
+                    if(tableau[co_y][co_x+2] == '3' || tableau[co_y][co_x+2] == 'X'){
+                        tableau[co_y][co_x+2] = '_';
+                    } else {
+                        tableau[co_y][co_x-1] = '_';
                     }
+                } else if (tableau[co_y][co_x-1] == '3' || tableau[co_y][co_x-1] == 'X'){
+                    tableau[co_y][co_x-1] = '_';
+                    tableau[co_y][co_x-2] = '_';
+                } else if (tableau[co_y+1][co_x] == '3' || tableau[co_y+1][co_x] == 'X') {
+                    tableau[co_y+1][co_x] = '_';
+                    if(tableau[co_y+2][co_x] == '3' || tableau[co_y+2][co_x] == 'X'){
+                        tableau[co_y+2][co_x] = '_';
+                    } else {
+                        tableau[co_y-1][co_x] = '_';
+                    }
+                } else if (tableau[co_y-1][co_x] == '3' || tableau[co_y-1][co_x] == 'X'){
+                    tableau[co_y-1][co_x] = '_';
+                    tableau[co_y-2][co_x] = '_';
+                }
+                do {
+                    co_y = rand() % 10;
+                    co_x = rand() % 10;
+                } while (co_x > 7 || tableau[co_y][co_x + 1] != '_' || tableau[co_y][co_x + 2] != '_' || co_y > 7  ||
+                         tableau[co_y + 1][co_x] != '_' || tableau[co_y + 2][co_x] != '_');
+                tableau[co_y][co_x] = '3';
+
+                d = rand() % 2;
+
+                if (d == 0) {
+                    tableau[co_y][co_x + 1] = '3';
+                    tableau[co_y][co_x + 2] = '3';
+                } else if (d == 1) {
+                    tableau[co_y + 1][co_x] = '3';
+                    tableau[co_y + 2][co_x] = '3';
+                }
+            } else if(tableau[co_y][co_x] == '4'){
+                tableau[co_y][co_x] = '_';
+                if(tableau[co_y][co_x+1] == '4' || tableau[co_y][co_x+1] == 'X'){
+                    tableau[co_y][co_x+1] = '_';
+                    if(tableau[co_y][co_x+2] == '4' || tableau[co_y][co_x+2] == 'X'){
+                        tableau[co_y][co_x+2] = '_';
+                        if(tableau[co_y][co_x+3] == '4' || tableau[co_y][co_x+3] == 'X'){
+                            tableau[co_y][co_x+3] = '_';
+                        } else {
+                            tableau[co_y][co_x-1] = '_';
+                        }
+                    } else {
+                        tableau[co_y][co_x-1] = '_';
+                        tableau[co_y][co_x-2] = '_';
+                    }
+                } else if (tableau[co_y][co_x-1] == '4' || tableau[co_y][co_x-1] == 'X'){
+                    tableau[co_y][co_x-1] = '_';
+                    tableau[co_y][co_x-2] = '_';
+                    tableau[co_y][co_x-3] = '_';
+                } else if (tableau[co_y+1][co_x] == '4' || tableau[co_y+1][co_x] == 'X') {
+                    tableau[co_y+1][co_x] = '_';
+                    if(tableau[co_y+2][co_x] == '4' || tableau[co_y+2][co_x] == 'X'){
+                        tableau[co_y+2][co_x] = '_';
+                        if(tableau[co_y+3][co_x] == '4' || tableau[co_y+3][co_x] == 'X'){
+                            tableau[co_y+3][co_x] = '_';
+                        } else {
+                            tableau[co_y-1][co_x] = '_';
+                        }
+                    } else {
+                        tableau[co_y-1][co_x] = '_';
+                        tableau[co_y-2][co_x] = '_';
+                    }
+                } else if (tableau[co_y-1][co_x] == '4' || tableau[co_y-1][co_x] == 'X'){
+                    tableau[co_y-1][co_x] = '_';
+                    tableau[co_y-2][co_x] = '_';
+                    tableau[co_y-3][co_x] = '_';
+                }
+                do {
+                    co_y = rand() % 10;
+                    co_x = rand() % 10;
+                } while (co_x > 6 || tableau[co_y][co_x + 1] != '_' || tableau[co_y][co_x + 2] != '_' || tableau[co_y][co_x + 3] != '_' || co_y > 6  ||
+                         tableau[co_y + 1][co_x] != '_' || tableau[co_y + 2][co_x] != '_' || tableau[co_y + 3][co_x] != '_');
+                tableau[co_y][co_x] = '4';
+
+                d = rand() % 2;
+
+                if (d == 0) {
+                    tableau[co_y][co_x + 1] = '4';
+                    tableau[co_y][co_x + 2] = '4';
+                    tableau[co_y][co_x + 3] = '4';
+                } else if (d == 1) {
+                    tableau[co_y + 1][co_x] = '4';
+                    tableau[co_y + 2][co_x] = '4';
+                    tableau[co_y + 3][co_x] = '4';
+                }
+            } else if (tableau[co_y][co_x] == '5'){
+                tableau[co_y][co_x] = '_';
+                if(tableau[co_y][co_x+1] == '5' || tableau[co_y][co_x+1] == 'X'){
+                    tableau[co_y][co_x+1] = '_';
+                    if(tableau[co_y][co_x+2] == '5' || tableau[co_y][co_x+2] == 'X'){
+                        tableau[co_y][co_x+2] = '_';
+                        if(tableau[co_y][co_x+3] == '5' || tableau[co_y][co_x+3] == 'X'){
+                            tableau[co_y][co_x+3] = '_';
+                            if(tableau[co_y][co_x+4] == '5' || tableau[co_y][co_x+4] == 'X'){
+                                tableau[co_y][co_x+4] = '_';
+                            } else {
+                                tableau[co_y][co_x-1] = '_';
+                            }
+                        } else {
+                            tableau[co_y][co_x-1] = '_';
+                            tableau[co_y][co_x-2] = '_';
+                        }
+                    } else {
+                        tableau[co_y][co_x-1] = '_';
+                        tableau[co_y][co_x-2] = '_';
+                        tableau[co_y][co_x-3] = '_';
+                    }
+                } else if (tableau[co_y][co_x-1] == '5' || tableau[co_y][co_x-1] == 'X'){
+                    tableau[co_y][co_x-1] = '_';
+                    tableau[co_y][co_x-2] = '_';
+                    tableau[co_y][co_x-3] = '_';
+                    tableau[co_y][co_x-4] = '_';
+                } else if (tableau[co_y+1][co_x] == '5' || tableau[co_y+1][co_x] == 'X') {
+                    tableau[co_y+1][co_x] = '_';
+                    if(tableau[co_y+2][co_x] == '5' || tableau[co_y+2][co_x] == 'X'){
+                        tableau[co_y+2][co_x] = '_';
+                        if(tableau[co_y+3][co_x] == '5' || tableau[co_y+3][co_x] == 'X'){
+                            tableau[co_y+3][co_x] = '_';
+                            if(tableau[co_y+4][co_x] == '5' || tableau[co_y+4][co_x] == 'X'){
+                                tableau[co_y+4][co_x] = '_';
+                            } else {
+                                tableau[co_y-1][co_x] = '_';
+                            }
+                        } else {
+                            tableau[co_y-1][co_x] = '_';
+                            tableau[co_y-2][co_x] = '_';
+                        }
+                    } else {
+                        tableau[co_y-1][co_x] = '_';
+                        tableau[co_y-2][co_x] = '_';
+                        tableau[co_y-3][co_x] = '_';
+                    }
+                } else if (tableau[co_y-1][co_x] == '5' || tableau[co_y-1][co_x] == 'X'){
+                    tableau[co_y-1][co_x] = '_';
+                    tableau[co_y-2][co_x] = '_';
+                    tableau[co_y-3][co_x] = '_';
+                    tableau[co_y-4][co_x] = '_';
+                }
+                do {
+                    co_y = rand() % 10;
+                    co_x = rand() % 10;
+                } while (co_x > 5 || co_y > 5);
+                tableau[co_y][co_x] = '5';
+
+                d = rand() % 2;
+
+                if (d == 0) {
+                    tableau[co_y][co_x + 1] = '5';
+                    tableau[co_y][co_x + 2] = '5';
+                    tableau[co_y][co_x + 3] = '5';
+                    tableau[co_y][co_x + 4] = '5';
+                } else if (d == 1) {
+                    tableau[co_y + 1][co_x] = '5';
+                    tableau[co_y + 2][co_x] = '5';
+                    tableau[co_y + 3][co_x] = '5';
+                    tableau[co_y + 4][co_x] = '5';
                 }
             }
         }
 
-        oui = recommencer(tableau);
-
-        if(oui == 0){
-            printf("Vous avez gagné! \n");
-            return 0;
-        } else if(oui == 1){
+        if(oui == 1){
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
