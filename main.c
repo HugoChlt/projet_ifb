@@ -9,8 +9,8 @@
 #include "inventory.h"
 
 int main() {
-    char plateau[10][10]={0};
-    char tab[10][10]={0};
+    char plateau[10][10]={0}; // tableau avec affichage des bateaux
+    char tab[10][10]={0}; //tableau sans affichage des bateaux
     char b = '\0';
     char a = '\0';
     srand(time(0));

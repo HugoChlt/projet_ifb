@@ -16,7 +16,7 @@
 void bateaux (char tableau[10][10]) {
     srand(time(0));
     int a, i;
-    int co_x, co_y;
+    int co_x, co_y; //coordonnees des bateaux
 
     do {
         co_y = rand() % 10;
