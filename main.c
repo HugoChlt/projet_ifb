@@ -79,7 +79,7 @@ int main() {
 
                     Inventory e = nb_munitions(a);
 
-                    tirs(plateau, e, tab);
+                    tirs_1(plateau, e, tab);
                     break;
                 case 'B' :
                     grille_initiale(plateau);

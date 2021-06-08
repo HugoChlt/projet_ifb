@@ -39,18 +39,20 @@ Inventory nb_munitions(char a){
     return e;
 }
 
-void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
+void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
-    char maniere = '\0';
-    int co_x, co_y;
+    char maniere = '\0'; //horizontale ou verticale
+    int co_x, co_y; //coordonnees de lancement du missile
     int i, j;
-    int oui;
+    int continuer; //nombre entre 0 et 1 permettant de savoir si l'utilisateur a gagne ou non
+
     for (i=0;i<10;i++){
         for (j=0;j<10;j++){
             tab[i][j]='_';
         }
     }
+
     do {
         grille(tab);
         fflush(stdin);
@@ -513,12 +515,12 @@ void tirs(char tableau[10][10], Inventory e, char tab[10][10]) {
             default : return 0;
                 }
 
-        oui = recommencer(tableau);
+        continuer = recommencer(tableau);
 
-        if(oui == 0){
+        if(continuer == 0){
             printf("Vous avez gagné! \n");
             return 0;
-        } else if(oui == 1){
+        } else if(continuer == 1){
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
@@ -558,7 +560,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     char maniere = '\0';
     int co_x, co_y;
     int i, j;
-    int oui;
+    int continuer;
     for (i=0;i<10;i++){
         for (j=0;j<10;j++){
             tab[i][j]='_';
@@ -1018,12 +1020,12 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
             default : return 0;
         }
 
-        oui = recommencer(tableau);
+        continuer = recommencer(tableau);
 
-        if(oui == 0){
+        if(continuer == 0){
             printf("Vous avez gagné! \n");
             return 0;
-        } else if(oui == 1){
+        } else if(continuer == 1){
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
@@ -1064,7 +1066,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     int co_x, co_y; //coordonnées x et y
     int d;
     int i, j; //entiers pour les boucles
-    int oui; //permet de stocker un entier afin de savoir si oui ou non il reste des bateaux sur la grille
+    int continuer; //permet de stocker un entier afin de savoir si oui ou non il reste des bateaux sur la grille
     int deplacer; // permet de savoir si l'ordinateur déplace ou non un bateau
     for (i=0;i<10;i++){
         for (j=0;j<10;j++){
@@ -1533,9 +1535,9 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             default : return 0;
         }
 
-        oui = recommencer(tableau);
+        continuer = recommencer(tableau);
 
-        if(oui == 0){
+        if(continuer == 0){
             printf("Vous avez gagné! \n");
             return 0;
         }
@@ -1742,7 +1744,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             }
         }
 
-        if(oui == 1){
+        if(continuer == 1){
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
