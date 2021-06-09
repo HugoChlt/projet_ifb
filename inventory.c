@@ -5,6 +5,7 @@
 #include "inventory.h"
 #include "grid.h"
 #include "autres_fonctions.h"
+#include "sauvegarde.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -528,7 +529,6 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                 }
                 grille(tableau);
                 grille(tab);
-                printf("Vous avez gagne !\n");
                 break;
             default : return 0;
                 }
@@ -536,15 +536,17 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
         continuer = recommencer(tableau);
 
         if(continuer == 0){
-            printf("Vous avez gagné! \n");
+            printf("Vous avez gagne ! \n");
             return 0;
         } else if(continuer == 1){
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
+            b = toupper(b);
             while (b != 'C' && b != 'S'){
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
+                b = toupper(b);
             }
         }
 
@@ -553,21 +555,22 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
-        printf("hourra");
-        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "r");
+        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
         if(fichier_sauvegarde == NULL) {
             printf("Ouverture impossible du fichier\n");
             return -1;  // On quitte le programme
         }
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_artillerie);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_tactique);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile);
-        fprintf(fichier_sauvegarde, "%d\n\n", e.bombe);
-        for(i=0;i<=10;i++){
-            for(j=0;j<=10;j++){
+        fprintf(fichier_sauvegarde, "type de jeu : %d\n\n", 1);
+        fprintf(fichier_sauvegarde, "missiles d'artilleries : %d  ", e.missile_artillerie);
+        fprintf(fichier_sauvegarde, "missiles tactiques : %d  ", e.missile_tactique);
+        fprintf(fichier_sauvegarde, "missiles : %d  ", e.missile);
+        fprintf(fichier_sauvegarde, "bombes : %d\n\n", e.bombe);
+        for(i=0;i<10;i++){
+            for(j=0;j<10;j++){
                 fprintf(fichier_sauvegarde, "%c  ", tableau[i][j]);
             }
             fprintf(fichier_sauvegarde, "\n");
+
         }
     }
 }
@@ -1035,6 +1038,23 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 break;
+            case '#' :
+                printf("Bravo a vous, vous avez trouvé le caractere secret permettant de gagner cette partie immediatement\n");
+                printf("N'en parlez a personne, cela reste entre nous !\n");
+                for (i=0;i<10;i++){
+                    for (j=0;j<10;j++){
+                        if (tableau[i][j] == '_' || tableau[i][j] == 'O'){
+                            tableau[i][j] = 'O';
+                            tab[i][j] = 'O';
+                        } else {
+                            tableau[i][j] = 'X';
+                            tab[i][j] = 'X';
+                        }
+                    }
+                }
+                grille(tableau);
+                grille(tab);
+                break;
             default : return 0;
         }
 
@@ -1047,9 +1067,11 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
+            b = toupper(b);
             while (b != 'C' && b != 'S'){
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
+                b = toupper(b);
             }
         }
 
@@ -1058,21 +1080,22 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
-        printf("hourra");
-        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "r");
+        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
         if(fichier_sauvegarde == NULL) {
             printf("Ouverture impossible du fichier\n");
             return -1;  // On quitte le programme
         }
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_artillerie);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_tactique);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile);
-        fprintf(fichier_sauvegarde, "%d\n\n", e.bombe);
-        for(i=0;i<=10;i++){
-            for(j=0;j<=10;j++){
+        fprintf(fichier_sauvegarde, "type de jeu : %d\n\n", 2);
+        fprintf(fichier_sauvegarde, "missiles d'artilleries : %d  ", e.missile_artillerie);
+        fprintf(fichier_sauvegarde, "missiles tactiques : %d  ", e.missile_tactique);
+        fprintf(fichier_sauvegarde, "missiles : %d  ", e.missile);
+        fprintf(fichier_sauvegarde, "bombes : %d\n\n", e.bombe);
+        for(i=0;i<10;i++){
+            for(j=0;j<10;j++){
                 fprintf(fichier_sauvegarde, "%c  ", tableau[i][j]);
             }
             fprintf(fichier_sauvegarde, "\n");
+
         }
     }
 }
@@ -1550,6 +1573,23 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                 grille(tableau);
                 grille(tab);
                 break;
+            case '#' :
+                printf("Bravo a vous, vous avez trouvé le caractere secret permettant de gagner cette partie immediatement\n");
+                printf("N'en parlez a personne, cela reste entre nous !\n");
+                for (i=0;i<10;i++){
+                    for (j=0;j<10;j++){
+                        if (tableau[i][j] == '_' || tableau[i][j] == 'O'){
+                            tableau[i][j] = 'O';
+                            tab[i][j] = 'O';
+                        } else {
+                            tableau[i][j] = 'X';
+                            tab[i][j] = 'X';
+                        }
+                    }
+                }
+                grille(tableau);
+                grille(tab);
+                break;
             default : return 0;
         }
 
@@ -1766,9 +1806,11 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             fflush(stdin);
             printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
             gets(&b);
+            b = toupper(b);
             while (b != 'C' && b != 'S'){
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
+                b = toupper(b);
             }
         }
 
@@ -1777,18 +1819,18 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
-        printf("hourra");
-        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "r");
+        FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
         if(fichier_sauvegarde == NULL) {
             printf("Ouverture impossible du fichier\n");
             return -1;  // On quitte le programme
         }
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_artillerie);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile_tactique);
-        fprintf(fichier_sauvegarde, "%d  ", e.missile);
-        fprintf(fichier_sauvegarde, "%d\n\n", e.bombe);
-        for(i=0;i<=10;i++){
-            for(j=0;j<=10;j++){
+        fprintf(fichier_sauvegarde, "type de jeu : %d\n\n", 3);
+        fprintf(fichier_sauvegarde, "missiles d'artilleries : %d  ", e.missile_artillerie);
+        fprintf(fichier_sauvegarde, "missiles tactiques : %d  ", e.missile_tactique);
+        fprintf(fichier_sauvegarde, "missiles : %d  ", e.missile);
+        fprintf(fichier_sauvegarde, "bombes : %d\n\n", e.bombe);
+        for(i=0;i<10;i++){
+            for(j=0;j<10;j++){
                 fprintf(fichier_sauvegarde, "%c  ", tableau[i][j]);
             }
             fprintf(fichier_sauvegarde, "\n");

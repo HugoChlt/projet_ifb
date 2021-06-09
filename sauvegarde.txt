@@ -1,0 +1,12 @@
+type de jeu : 1  missiles d'artilleries : 9  missiles tactiques : 10  missiles : 10  bombes : 10
+
+4  4  4  4  _  _  _  _  _  _  
+O  O  O  X  X  X  X  X  O  O  
+_  2  _  _  _  3  _  _  _  _  
+_  2  _  _  _  3  _  _  _  _  
+_  _  _  _  _  3  _  _  _  _  
+_  3  3  3  _  _  _  _  _  _  
+_  _  _  _  _  _  _  _  _  _  
+_  _  _  _  _  _  _  _  _  _  
+_  _  _  _  _  _  _  _  _  _  
+_  _  _  _  _  _  _  _  _  _  
