@@ -62,7 +62,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
         printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
         gets(&a);
         a = toupper(a);
-        while (a != 'A' && a != 'T' && a != 'B' && a != 'M'){
+        while (a != 'A' && a != 'T' && a != 'B' && a != 'M' && a!= '#'){
             fflush(stdin);
             printf("Veuillez entrer une munition correcte\n");
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
@@ -511,6 +511,24 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                 }
                 grille(tableau);
                 grille(tab);
+                break;
+            case '#' :
+                printf("Bravo a vous, vous avez trouvé le caractere secret permettant de gagner cette partie immediatement\n");
+                printf("N'en parlez a personne, cela reste entre nous !\n");
+                for (i=0;i<10;i++){
+                    for (j=0;j<10;j++){
+                        if (tableau[i][j] == '_' || tableau[i][j] == 'O'){
+                            tableau[i][j] = 'O';
+                            tab[i][j] = 'O';
+                        } else {
+                            tableau[i][j] = 'X';
+                            tab[i][j] = 'X';
+                        }
+                    }
+                }
+                grille(tableau);
+                grille(tab);
+                printf("Vous avez gagne !\n");
                 break;
             default : return 0;
                 }
