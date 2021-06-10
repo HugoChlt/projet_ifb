@@ -8,12 +8,17 @@
 #include "autres_fonctions.h"
 #include "inventory.h"
 
+#define FILENAME "sauvegarde.txt"
+
 int main() {
     char plateau[10][10]={0}; // tableau avec affichage des bateaux
     char tab[10][10]={0}; //tableau sans affichage des bateaux
     char b = '\0';
     char a = '\0';
+    int i, j;
+    int type_jeu;
     srand(time(0));
+    FILE *fichier_sauvegarde;
 
     printf("\nBienvenue dans le jeu de la bataille navale !\n\n");
     printf("Menu : \n");
@@ -34,8 +39,43 @@ int main() {
         case 'Q' :
             return 0;
         case 'C' :
-            printf("On verra apres\n");
-            return b;
+            printf("");
+            Inventory s;
+
+            fichier_sauvegarde = fopen("../sauvegarde.txt", "r");
+            if(fichier_sauvegarde == NULL) {
+                printf("Ouverture impossible du fichier\n");
+                return -1;  // On quitte le programme
+            }
+            while(fscanf(fichier_sauvegarde,"type de jeu : %d  missiles d'artilleries : %d  missiles tactiques : %d  missiles : %d  bombes : %d\n",&type_jeu, &s.missile_artillerie, &s.missile_tactique, &s.missile, &s.bombe) != '\0') {
+                printf("\nVous possedez au depart : %d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n", s.missile_artillerie, s.missile_tactique, s.bombe, s.missile);
+            }
+
+            for(i=0;i<10;i++){
+                for(j=0;j<10;j++){
+                    fscanf(fichier_sauvegarde,"%c  ",&plateau[i][j]);
+                }
+            }
+            grille(plateau);
+            for(i=0;i<10;i++){
+                for(j=0;j<10;j++){
+                    if(plateau[i][j] == '_' || plateau[i][j] == 'X' || plateau[i][j] == 'O'){
+                        tab[i][j] = plateau[i][j];
+                    } else {
+                        tab[i][j] = '_';
+                    }
+                }
+            }
+            grille(tab);
+            fclose (fichier_sauvegarde);
+            if(type_jeu == 1){
+                tirs_1(plateau, s, tab);
+            } else if(type_jeu == 2){
+                tirs_2(plateau, s, tab);
+            } else if(type_jeu == 3){
+                tirs_3(plateau, s, tab);
+            }
+            break;
         case 'D' :
             fflush(stdin);
             printf("Choississez le niveau de difficulte :\n");
@@ -68,6 +108,7 @@ int main() {
             switch (b) {
                 case 'C' :
                     grille_initiale(plateau);
+                    grille_initiale(tab);
 
                     printf("\n\n");
 
@@ -83,6 +124,7 @@ int main() {
                     break;
                 case 'B' :
                     grille_initiale(plateau);
+                    grille_initiale(tab);
 
                     printf("\n\n");
 
@@ -98,6 +140,7 @@ int main() {
                     break;
                 case 'A' :
                     grille_initiale(plateau);
+                    grille_initiale(tab);
 
                     printf("\n\n");
 

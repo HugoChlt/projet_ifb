@@ -48,11 +48,6 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     int i, j;
     int continuer; //nombre entre 0 et 1 permettant de savoir si l'utilisateur a gagne ou non
 
-    for (i=0;i<10;i++){
-        for (j=0;j<10;j++){
-            tab[i][j]='_';
-        }
-    }
 
     do {
         grille(tab);
@@ -582,11 +577,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     int co_x, co_y;
     int i, j;
     int continuer;
-    for (i=0;i<10;i++){
-        for (j=0;j<10;j++){
-            tab[i][j]='_';
-        }
-    }
+
     do {
         fflush(stdin);
         printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
@@ -1109,11 +1100,6 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     int i, j; //entiers pour les boucles
     int continuer; //permet de stocker un entier afin de savoir si oui ou non il reste des bateaux sur la grille
     int deplacer; // permet de savoir si l'ordinateur déplace ou non un bateau
-    for (i=0;i<10;i++){
-        for (j=0;j<10;j++){
-            tab[i][j]='_';
-        }
-    }
     do {
         grille(tab);
         fflush(stdin);
