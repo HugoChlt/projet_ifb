@@ -78,10 +78,11 @@ int main() {
             break;
         case 'D' :
             fflush(stdin);
-            printf("Choississez le niveau de difficulte :\n");
-            printf("Facile (F)\n");
-            printf("Moyen (M)\n");
-            printf("Difficile (D)\n");
+            printf("\nChoississez le niveau de difficulte :\n");
+            printf("    Facile (F)\n");
+            printf("    Moyen (M)\n");
+            printf("    Difficile (D)\n");
+            printf("Choississez la lettre du niveau de difficulte souhaitee : ");
             gets(&a);
             a = toupper(a);
             while (a != 'F' && a != 'M' && a != 'D') {
@@ -96,12 +97,13 @@ int main() {
             printf("    Classique (C)\n");
             printf("    Blind (B)\n");
             printf("    Active (A)\n");
+            printf("Choississez la lettre du type de partie souhaitee :");
             scanf(" %c", &b);
             b = toupper(b);
             while (b != 'C' && b != 'B' && b != 'A') {
                 printf("\n");
                 printf("Erreur, la commande souhaitee n'existe pas !\n");
-                printf("Choississez la lettre du type de partie souhaitee :");
+                printf("Veuillez choisir un type de partie possible : C, B ou A\n");
                 scanf(" %c", &b);
                 b = toupper(b);
             }
