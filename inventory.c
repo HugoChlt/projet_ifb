@@ -34,7 +34,7 @@ Inventory nb_munitions(char a){
         e.missile_artillerie = 1;
         e.missile_tactique = 4;
         e.bombe = 2;
-        e.missile = 1;
+        e.missile = 15;
     }
     printf("\nVous possedez au depart : %d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n", e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
     return e;
