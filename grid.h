@@ -7,5 +7,6 @@
 
 void grille_initiale (char tableau[10][10]);
 void grille (char tableau[10][10]);
+void affectation(char tableau[10][10]);
 
 #endif //PROJET_1_GRID_H

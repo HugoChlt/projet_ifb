@@ -109,48 +109,42 @@ int main() {
             }
             switch (b) {
                 case 'C' :
-                    grille_initiale(plateau);
-                    grille_initiale(tab);
+                    affectation(plateau);
+                    affectation(tab);
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
                     bateaux(plateau);
-
-                    grille(plateau);
 
                     Inventory e = nb_munitions(a);
 
                     tirs_1(plateau, e, tab);
                     break;
                 case 'B' :
-                    grille_initiale(plateau);
-                    grille_initiale(tab);
+                    affectation(plateau);
+                    affectation(tab);
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
                     bateaux(plateau);
-
-                    grille(plateau);
 
                     Inventory d = nb_munitions(a);
 
                     tirs_2(plateau, d, tab);
                     break;
                 case 'A' :
-                    grille_initiale(plateau);
-                    grille_initiale(tab);
+                    affectation(plateau);
+                    affectation(tab);
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
                     bateaux(plateau);
-
-                    grille(plateau);
 
                     Inventory f = nb_munitions(a);
 

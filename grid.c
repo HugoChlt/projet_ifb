@@ -59,3 +59,12 @@ void grille (char tableau[10][10]){
 
     printf("   -----------------------------------------");
 }
+
+void affectation(char tableau[10][10]){
+    int i, j;
+    for (i=0;i<10;i++){
+        for(j=0;j<10;j++){
+            tableau[i][j] = '_';
+        }
+    }
+}
