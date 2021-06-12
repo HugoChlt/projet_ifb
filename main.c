@@ -67,10 +67,13 @@ int main() {
             }
             fclose (fichier_sauvegarde);
             if(type_jeu == 1){
+                printf("Vous jouez en mode Classique\n\n");
                 tirs_1(plateau, s, tab);
             } else if(type_jeu == 2){
+                printf("Vous jouez en mode Blind\n\n");
                 tirs_2(plateau, s, tab);
             } else if(type_jeu == 3){
+                printf("Vous jouez en mode Active\n\n");
                 tirs_3(plateau, s, tab);
             }
             break;

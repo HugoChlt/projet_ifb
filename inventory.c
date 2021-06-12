@@ -585,6 +585,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
             gets(&b);
             b = toupper(b);
             while (b != 'C' && b != 'S'){
+                printf("Erreur dans la saisie\n");
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
                 b = toupper(b);
@@ -1153,6 +1154,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
             gets(&b);
             b = toupper(b);
             while (b != 'C' && b != 'S'){
+                printf("Erreur dans la saisie\n");
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
                 b = toupper(b);
@@ -1931,6 +1933,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
             gets(&b);
             b = toupper(b);
             while (b != 'C' && b != 'S'){
+                printf("Erreur dans la saisie\n");
                 printf("\nVoulez-vous continuez (C) ou sauvegarder votre partie et quitter (S) ?\n");
                 gets(&b);
                 b = toupper(b);
