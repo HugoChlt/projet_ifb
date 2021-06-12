@@ -5,7 +5,6 @@
 #include "inventory.h"
 #include "grid.h"
 #include "autres_fonctions.h"
-#include "sauvegarde.h"
 
 #include <stdio.h>
 #include <math.h>
