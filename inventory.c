@@ -34,7 +34,7 @@ Inventory nb_munitions(char a){
         e.missile_artillerie = 1;
         e.missile_tactique = 4;
         e.bombe = 2;
-        e.missile = 15;
+        e.missile = 1;
     }
     printf("\nVous possedez au depart : %d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n", e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
     return e;
@@ -61,6 +61,41 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
         while (a != 'A' && a != 'T' && a != 'B' && a != 'M' && a!= '#'){
             fflush(stdin);
             printf("Veuillez entrer une munition correcte\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        }
+        if(a == 'A' && e.missile_artillerie == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'T' && e.missile_tactique == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'B' && e.bombe == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'M' && e.missile == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
             a = toupper(a);
@@ -557,8 +592,8 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
         }
 
 
-    } while (b == 'C' && e.missile_artillerie > 0 && e.missile_tactique > 0 && e.bombe > 0 && e.missile > 0);
-    if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
+    } while (b == 'C' && (e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0));
+    if (e.missile_artillerie == 0 || e.missile_tactique == 0 || e.bombe == 0 || e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
         FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
@@ -600,6 +635,39 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
         while (a != 'A' && a != 'T' && a != 'B' && a != 'M'){
             fflush(stdin);
             printf("Veuillez entrer une munition correcte\n");
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        }
+        if(a == 'A' && e.missile_artillerie == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'T' && e.missile_tactique == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'B' && e.bombe == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'M' && e.missile == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
             a = toupper(a);
@@ -1092,8 +1160,8 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
         }
 
 
-    } while (b == 'C' && e.missile_artillerie > 0 && e.missile_tactique > 0 && e.bombe > 0 && e.missile > 0);
-    if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
+    } while (b == 'C' && (e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0));
+    if (e.missile_artillerie == 0 || e.missile_tactique == 0 || e.bombe == 0 || e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
         FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
@@ -1137,6 +1205,39 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
         while (a != 'A' && a != 'T' && a != 'B' && a != 'M'){
             fflush(stdin);
             printf("Veuillez entrer une munition correcte\n");
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        }
+        if(a == 'A' && e.missile_artillerie == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'T' && e.missile_tactique == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'B' && e.bombe == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
+            printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
+            gets(&a);
+            a = toupper(a);
+        } else if (a == 'M' && e.missile == 0){
+            fflush(stdin);
+            printf("Veuillez entrer une munition restante\n");
+            printf("\n%d missiles d'artilleries, %d missiles tactiques, %d bombes, %d missiles simples.\n\n",
+                   e.missile_artillerie, e.missile_tactique, e.bombe, e.missile);
             printf("Quel munition souhaitez-vous utiliser ? (A) ou (T) ou (B) ou (M)\n");
             gets(&a);
             a = toupper(a);
@@ -1837,8 +1938,8 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
         }
 
 
-    } while (b == 'C' && e.missile_artillerie > 0 && e.missile_tactique > 0 && e.bombe > 0 && e.missile > 0);
-    if (e.missile_artillerie == 0 && e.missile_tactique == 0 && e.bombe == 0 && e.missile == 0){
+    } while (b == 'C' && (e.missile_artillerie > 0 || e.missile_tactique > 0 || e.bombe > 0 || e.missile > 0));
+    if (e.missile_artillerie == 0 || e.missile_tactique == 0 || e.bombe == 0 || e.missile == 0){
         printf("Vous avez perdu !\n");
     } else if (b == 'S'){
         FILE* fichier_sauvegarde = fopen("../sauvegarde.txt", "w");
