@@ -56,7 +56,6 @@ int main() {
                     fscanf(fichier_sauvegarde,"%c  ",&plateau[i][j]);
                 }
             }
-            grille(plateau);
             for(i=0;i<10;i++){
                 for(j=0;j<10;j++){
                     if(plateau[i][j] == '_' || plateau[i][j] == 'X' || plateau[i][j] == 'O'){
@@ -66,7 +65,6 @@ int main() {
                     }
                 }
             }
-            grille(tab);
             fclose (fichier_sauvegarde);
             if(type_jeu == 1){
                 tirs_1(plateau, s, tab);
