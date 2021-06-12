@@ -86,7 +86,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                 if (maniere == 'H') {
                     for (i = 0; i < 10; i++) {
                         if (tableau[co_y][i] != '_' && tableau[co_y][i] != 'O' && tableau[co_y][i] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", co_y, i);
+                            printf("Un bateau a ete touche, en %d-%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
                         } else if (tableau[co_y][i] == '_'){
@@ -99,7 +99,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                 } else {
                     for (i = 0; i < 10; i++) {
                         if (tableau[i][co_x] != '_' && tableau[i][co_x] != 'O' && tableau[i][co_x] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", i, co_x);
+                            printf("Un bateau a ete touche, en %d-%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
                         } else if (tableau[i][co_x] == '_'){
@@ -122,7 +122,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] == '2'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                     if(tableau[co_y-1][co_x] == '2'){
@@ -408,7 +408,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
@@ -418,7 +418,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x] != '_' && tableau[co_y-1][co_x] != 'O' && tableau[co_y-1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x);
                     tableau[co_y-1][co_x] = 'X';
                     tab[co_y-1][co_x] = 'X';
                 } else if (tableau[co_y-1][co_x] == '_'){
@@ -428,7 +428,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x+1] != '_' && tableau[co_y-1][co_x+1] != 'O' && tableau[co_y-1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x+1);
                     tableau[co_y-1][co_x+1] = 'X';
                     tab[co_y-1][co_x+1] = 'X';
                 } else if (tableau[co_y-1][co_x+1] == '_'){
@@ -438,7 +438,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x+1] != '_' && tableau[co_y][co_x+1] != 'O' && tableau[co_y][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x+1);
                     tableau[co_y][co_x+1] = 'X';
                     tab[co_y][co_x+1] = 'X';
                 } else if (tableau[co_y][co_x+1] == '_'){
@@ -448,7 +448,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x+1] != '_' && tableau[co_y+1][co_x+1] != 'O' && tableau[co_y+1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x+1);
                     tableau[co_y+1][co_x+1] = 'X';
                     tab[co_y+1][co_x+1] = 'X';
                 } else if (tableau[co_y+1][co_x+1] == '_'){
@@ -458,7 +458,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x] != '_' && tableau[co_y+1][co_x] != 'O' && tableau[co_y+1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x);
                     tableau[co_y+1][co_x] = 'X';
                     tab[co_y+1][co_x] = 'X';
                 } else if (tableau[co_y+1][co_x] == '_'){
@@ -468,7 +468,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x-1] != '_' && tableau[co_y+1][co_x-1] != 'O' && tableau[co_y+1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x-1);
                     tableau[co_y+1][co_x-1] = 'X';
                     tab[co_y+1][co_x-1] = 'X';
                 } else if (tableau[co_y+1][co_x-1] == '_'){
@@ -478,7 +478,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x-1] != '_' && tableau[co_y][co_x-1] != 'O' && tableau[co_y][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x-1);
                     tableau[co_y][co_x-1] = 'X';
                     tab[co_y][co_x-1] = 'X';
                 } else if (tableau[co_y][co_x-1] == '_'){
@@ -488,7 +488,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x-1] != '_' && tableau[co_y-1][co_x-1] != 'O' && tableau[co_y-1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x-1);
                     tableau[co_y-1][co_x-1] = 'X';
                     tab[co_y-1][co_x-1] = 'X';
                 } else if (tableau[co_y-1][co_x-1] == '_'){
@@ -509,7 +509,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
@@ -625,7 +625,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
                 if (maniere == 'H') {
                     for (i = 0; i < 10; i++) {
                         if (tableau[co_y][i] != '_' && tableau[co_y][i] != 'O' && tableau[co_y][i] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", co_y, i);
+                            printf("Un bateau a ete touche, en %d-%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
                         } else if (tableau[co_y][i] == '_'){
@@ -638,7 +638,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
                 } else {
                     for (i = 0; i < 10; i++) {
                         if (tableau[i][co_x] != '_' && tableau[i][co_x] != 'O' && tableau[i][co_x] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", i, co_x);
+                            printf("Un bateau a ete touche, en %d-%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
                         } else if (tableau[i][co_x] == '_'){
@@ -661,7 +661,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] == '2'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                     if(tableau[co_y-1][co_x] == '2'){
@@ -946,7 +946,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
@@ -956,7 +956,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x] != '_' && tableau[co_y-1][co_x] != 'O' && tableau[co_y-1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x);
                     tableau[co_y-1][co_x] = 'X';
                     tab[co_y-1][co_x] = 'X';
                 } else if (tableau[co_y-1][co_x] == '_'){
@@ -966,7 +966,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x+1] != '_' && tableau[co_y-1][co_x+1] != 'O' && tableau[co_y-1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x+1);
                     tableau[co_y-1][co_x+1] = 'X';
                     tab[co_y-1][co_x+1] = 'X';
                 } else if (tableau[co_y-1][co_x+1] == '_'){
@@ -976,7 +976,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x+1] != '_' && tableau[co_y][co_x+1] != 'O' && tableau[co_y][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x+1);
                     tableau[co_y][co_x+1] = 'X';
                     tab[co_y][co_x+1] = 'X';
                 } else if (tableau[co_y][co_x+1] == '_'){
@@ -986,7 +986,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x+1] != '_' && tableau[co_y+1][co_x+1] != 'O' && tableau[co_y+1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x+1);
                     tableau[co_y+1][co_x+1] = 'X';
                     tab[co_y+1][co_x+1] = 'X';
                 } else if (tableau[co_y+1][co_x+1] == '_'){
@@ -996,7 +996,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x] != '_' && tableau[co_y+1][co_x] != 'O' && tableau[co_y+1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x);
                     tableau[co_y+1][co_x] = 'X';
                     tab[co_y+1][co_x] = 'X';
                 } else if (tableau[co_y+1][co_x] == '_'){
@@ -1006,7 +1006,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x-1] != '_' && tableau[co_y+1][co_x-1] != 'O' && tableau[co_y+1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x-1);
                     tableau[co_y+1][co_x-1] = 'X';
                     tab[co_y+1][co_x-1] = 'X';
                 } else if (tableau[co_y+1][co_x-1] == '_'){
@@ -1016,7 +1016,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x-1] != '_' && tableau[co_y][co_x-1] != 'O' && tableau[co_y][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x-1);
                     tableau[co_y][co_x-1] = 'X';
                     tab[co_y][co_x-1] = 'X';
                 } else if (tableau[co_y][co_x-1] == '_'){
@@ -1026,7 +1026,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x-1] != '_' && tableau[co_y-1][co_x-1] != 'O' && tableau[co_y-1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x-1);
                     tableau[co_y-1][co_x-1] = 'X';
                     tab[co_y-1][co_x-1] = 'X';
                 } else if (tableau[co_y-1][co_x-1] == '_'){
@@ -1046,7 +1046,7 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
@@ -1162,7 +1162,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                 if (maniere == 'H') {
                     for (i = 0; i < 10; i++) {
                         if (tableau[co_y][i] != '_' && tableau[co_y][i] != 'O' && tableau[co_y][i] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", co_y, i);
+                            printf("Un bateau a ete touche, en %d-%d\n", co_y, i);
                             tableau[co_y][i] = 'X';
                             tab[co_y][i] = 'X';
                         } else if (tableau[co_y][i] == '_'){
@@ -1175,7 +1175,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                 } else {
                     for (i = 0; i < 10; i++) {
                         if (tableau[i][co_x] != '_' && tableau[i][co_x] != 'O' && tableau[i][co_x] != 'X') {
-                            printf("Un bateau a ete touche, en %d%d\n", i, co_x);
+                            printf("Un bateau a ete touche, en %d-%d\n", i, co_x);
                             tableau[i][co_x] = 'X';
                             tab[i][co_x] = 'X';
                         } else if (tableau[i][co_x] == '_'){
@@ -1198,7 +1198,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] == '2'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                     if(tableau[co_y-1][co_x] == '2'){
@@ -1484,7 +1484,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
@@ -1494,7 +1494,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x] != '_' && tableau[co_y-1][co_x] != 'O' && tableau[co_y-1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x);
                     tableau[co_y-1][co_x] = 'X';
                     tab[co_y-1][co_x] = 'X';
                 } else if (tableau[co_y-1][co_x] == '_'){
@@ -1504,7 +1504,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x+1] != '_' && tableau[co_y-1][co_x+1] != 'O' && tableau[co_y-1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x+1);
                     tableau[co_y-1][co_x+1] = 'X';
                     tab[co_y-1][co_x+1] = 'X';
                 } else if (tableau[co_y-1][co_x+1] == '_'){
@@ -1514,7 +1514,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x+1] != '_' && tableau[co_y][co_x+1] != 'O' && tableau[co_y][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x+1);
                     tableau[co_y][co_x+1] = 'X';
                     tab[co_y][co_x+1] = 'X';
                 } else if (tableau[co_y][co_x+1] == '_'){
@@ -1524,7 +1524,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x+1] != '_' && tableau[co_y+1][co_x+1] != 'O' && tableau[co_y+1][co_x+1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x+1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x+1);
                     tableau[co_y+1][co_x+1] = 'X';
                     tab[co_y+1][co_x+1] = 'X';
                 } else if (tableau[co_y+1][co_x+1] == '_'){
@@ -1534,7 +1534,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x] != '_' && tableau[co_y+1][co_x] != 'O' && tableau[co_y+1][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x);
                     tableau[co_y+1][co_x] = 'X';
                     tab[co_y+1][co_x] = 'X';
                 } else if (tableau[co_y+1][co_x] == '_'){
@@ -1544,7 +1544,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y+1][co_x-1] != '_' && tableau[co_y+1][co_x-1] != 'O' && tableau[co_y+1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y+1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y+1, co_x-1);
                     tableau[co_y+1][co_x-1] = 'X';
                     tab[co_y+1][co_x-1] = 'X';
                 } else if (tableau[co_y+1][co_x-1] == '_'){
@@ -1554,7 +1554,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y][co_x-1] != '_' && tableau[co_y][co_x-1] != 'O' && tableau[co_y][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x-1);
                     tableau[co_y][co_x-1] = 'X';
                     tab[co_y][co_x-1] = 'X';
                 } else if (tableau[co_y][co_x-1] == '_'){
@@ -1564,7 +1564,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
                 }
                 if(tableau[co_y-1][co_x-1] != '_' && tableau[co_y-1][co_x-1] != 'O' && tableau[co_y-1][co_x-1] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y-1, co_x-1);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y-1, co_x-1);
                     tableau[co_y-1][co_x-1] = 'X';
                     tab[co_y-1][co_x-1] = 'X';
                 } else if (tableau[co_y-1][co_x-1] == '_'){
@@ -1585,7 +1585,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
                     scanf("%d%d", &co_y, &co_x);
                 }
                 if(tableau[co_y][co_x] != '_' && tableau[co_y][co_x] != 'O' && tableau[co_y][co_x] != 'X'){
-                    printf("Un bateau a ete touche, en %d%d\n", co_y, co_x);
+                    printf("Un bateau a ete touche, en %d-%d\n", co_y, co_x);
                     tableau[co_y][co_x] = 'X';
                     tab[co_y][co_x] = 'X';
                 } else if (tableau[co_y][co_x] == '_'){
