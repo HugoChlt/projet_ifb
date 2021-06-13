@@ -13,10 +13,10 @@
 int main() {
     char plateau[10][10]={0}; // tableau avec affichage des bateaux
     char tab[10][10]={0}; //tableau sans affichage des bateaux
-    char b = '\0';
-    char a = '\0';
-    int i, j;
-    int type_jeu;
+    char b = '\0'; //variable utilisee dans les menus
+    char a = '\0'; //vairable utlisee dans les menus
+    int i, j; //pour les boucles for
+    int type_jeu; //permet de reprendre une sauvegarde avec le même mode de jeu
     srand(time(0));
     FILE *fichier_sauvegarde;
 
@@ -53,10 +53,10 @@ int main() {
 
             for(i=0;i<10;i++){
                 for(j=0;j<10;j++){
-                    fscanf(fichier_sauvegarde,"%c  ",&plateau[i][j]);
+                    fscanf(fichier_sauvegarde,"%c  ",&plateau[i][j]); //on recupere les valeurs de la sauvegarde et on les mets dans le tableau
                 }
             }
-            for(i=0;i<10;i++){
+            for(i=0;i<10;i++){ //initialisation du second tableau
                 for(j=0;j<10;j++){
                     if(plateau[i][j] == '_' || plateau[i][j] == 'X' || plateau[i][j] == 'O'){
                         tab[i][j] = plateau[i][j];
@@ -110,44 +110,44 @@ int main() {
             }
             switch (b) {
                 case 'C' :
-                    affectation(plateau);
-                    affectation(tab);
+                    affectation(plateau); //initialisation du tableau avec des '_'
+                    affectation(tab); //initialisation du tableau avec des '_'
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
-                    bateaux(plateau);
+                    bateaux(plateau); //placement des bateaux
 
-                    Inventory e = nb_munitions(a);
+                    Inventory e = nb_munitions(a); //definition du nombre de munition
 
                     tirs_1(plateau, e, tab);
                     break;
                 case 'B' :
-                    affectation(plateau);
-                    affectation(tab);
+                    affectation(plateau); //initialisation du tableau avec des '_'
+                    affectation(tab); //initialisation du tableau avec des '_'
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
-                    bateaux(plateau);
+                    bateaux(plateau); //placement des bateaux
 
-                    Inventory d = nb_munitions(a);
+                    Inventory d = nb_munitions(a); //definition du nombre de munition
 
                     tirs_2(plateau, d, tab);
                     break;
                 case 'A' :
-                    affectation(plateau);
-                    affectation(tab);
+                    affectation(plateau); //initialisation du tableau avec des '_'
+                    affectation(tab); //initialisation du tableau avec des '_'
 
                     printf("\n\n");
 
                     printf("L'adversaire possede 5 bateaux : un de taille 5, un de taille 4, 2 de taille 3 et un de taille 2.\n");
 
-                    bateaux(plateau);
+                    bateaux(plateau); //placement des bateaux
 
-                    Inventory f = nb_munitions(a);
+                    Inventory f = nb_munitions(a); //definition du nombre de munition
 
                     tirs_3(plateau, f, tab);
                     break;

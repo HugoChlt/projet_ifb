@@ -60,6 +60,10 @@ void grille (char tableau[10][10]){
     printf("   -----------------------------------------");
 }
 
+/**
+ * Permet d'initialiser les grilles au lancement du jeu avec le caractère '_'
+ * @param tableau
+ */
 void affectation(char tableau[10][10]){
     int i, j;
     for (i=0;i<10;i++){

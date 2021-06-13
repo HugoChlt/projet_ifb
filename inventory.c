@@ -18,7 +18,7 @@
  * @return Inventory e
  */
 Inventory nb_munitions(char a){
-    Inventory e;
+    Inventory e; //nombre de munitions en fonction de la difficulte
     if (a == 'F'){
         e.missile_artillerie = 10;
         e.missile_tactique = 10;
@@ -44,7 +44,7 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     char b = '\0'; // continuez ou sauvegarder
     char maniere = '\0'; //horizontale ou verticale
     int co_x, co_y; //coordonnees de lancement du missile
-    int i, j;
+    int i, j; //variables pour les boucles for
     int continuer; //nombre entre 0 et 1 permettant de savoir si l'utilisateur a gagne ou non
 
 
@@ -619,10 +619,10 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
 void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
-    char maniere = '\0';
-    int co_x, co_y;
-    int i, j;
-    int continuer;
+    char maniere = '\0'; //missile artillerie horizontal ou vertical
+    int co_x, co_y; //coordonnees de lancement
+    int i, j; //variables pour les boucles for
+    int continuer; //nombre entre 0 et 1 permettant de savoir si l'utilisateur a gagne ou non
 
     do {
         fflush(stdin);
@@ -1188,9 +1188,9 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
 void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
-    char maniere = '\0';
+    char maniere = '\0'; //lancement missile artillerie horizontalement ou verticalement
     int co_x, co_y; //coordonnées x et y
-    int d;
+    int d; //variable nombre aleatoire placement bateaux (0 horizontale, 1 verticale)
     int i, j; //entiers pour les boucles
     int continuer; //permet de stocker un entier afin de savoir si oui ou non il reste des bateaux sur la grille
     int deplacer; // permet de savoir si l'ordinateur déplace ou non un bateau
