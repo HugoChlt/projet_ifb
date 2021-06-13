@@ -81,6 +81,11 @@ char partie (char a, char b) {
     }
 }
 
+/**
+ * fonction qui permet que si il reste des bateaux, la fonction retourne 1 sinon 0
+ * @param tableau
+ * @return
+ */
 int recommencer(char tableau[10][10]){
     int i;
     int j;

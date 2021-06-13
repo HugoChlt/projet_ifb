@@ -39,6 +39,12 @@ Inventory nb_munitions(char a){
     return e;
 }
 
+/**
+ * Principale fonction de jeu, pour le mode Classique
+ * @param tableau
+ * @param e
+ * @param tab
+ */
 void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
@@ -616,6 +622,12 @@ void tirs_1(char tableau[10][10], Inventory e, char tab[10][10]) {
     }
 }
 
+/**
+ * Principale fonction de jeu, pour le mode Blind
+ * @param tableau
+ * @param e
+ * @param tab
+ */
 void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
@@ -1185,6 +1197,12 @@ void tirs_2(char tableau[10][10], Inventory e, char tab[10][10]) {
     }
 }
 
+/**
+ * Principale fonction de jeu, pour le mode Active
+ * @param tableau
+ * @param e
+ * @param tab
+ */
 void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
     char a = '\0'; //type munition
     char b = '\0'; // continuez ou sauvegarder
@@ -1726,7 +1744,7 @@ void tirs_3(char tableau[10][10], Inventory e, char tab[10][10]) {
 
         srand(time(0));
         deplacer = rand()% 2;
-        if(deplacer == 0){
+        if(deplacer == 0){ //suppression d'un bateau puis replacement de celui-ci a un autre endroit sur la grille
             do {
                 co_y = rand() % 10;
                 co_x = rand() % 10;
